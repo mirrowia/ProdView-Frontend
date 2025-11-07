@@ -1,0 +1,9 @@
+<div>
+    <label class="block text-sm font-medium mb-1">Proceso Activos</label>
+    <select 
+        [(ngModel)]="procesoSeleccionado"
+        (ngModelChange)="onCambioProceso($event)"
+        class="border rounded px-2 py-1 sm:w-full bg-cyan-800">
+      <option *ngFor="let p of procesos" [value]="p">{{ p }}</option>
+    </select>
+</div>

@@ -1,0 +1,9 @@
+<div>
+  <label class="block text-sm font-medium mb-1">Turno</label>
+  <select
+    [(ngModel)]="turnoSeleccionado"
+    (ngModelChange)="onCambioTurno($event)"
+    class="border rounded px-2 py-1 w-full sm:w-44 bg-cyan-800">
+    <option *ngFor="let t of turnos" [value]="t">{{ t }}</option>
+  </select>
+</div>

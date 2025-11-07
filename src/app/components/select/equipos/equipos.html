@@ -1,0 +1,9 @@
+<div>
+    <label class="block text-sm font-medium mb-1">Equipo</label>
+    <select
+        [(ngModel)]="equipoSeleccionado"
+        (ngModelChange)="onCambioEquipo($event)"
+        class="border rounded px-2 py-1 sm:w-44 bg-cyan-800">
+        <option *ngFor="let e of equiposProduccion" [value]="e">{{ e }}</option>
+    </select>
+</div>

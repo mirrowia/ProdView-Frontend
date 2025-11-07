@@ -1,0 +1,14 @@
+<div>
+    <div *ngIf="!editandoFecha"
+         class="px-2 py-1 w-full text-cyan-300 font-semibold text-lg font-mono cursor-pointer"
+         (click)="editandoFecha = true">
+      {{ formatoFecha(fechaSeleccionada) }}
+    </div>
+  
+    <input *ngIf="editandoFecha"
+           type="datetime-local"
+           [value]="fechaLocal()"
+           (blur)="guardarFecha($event)"
+           (keydown.enter)="guardarFecha($event)"
+           class="px-2 py-1 w-full text-black font-semibold text-lg font-mono border rounded" />
+  </div>
