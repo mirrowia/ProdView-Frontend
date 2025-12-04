@@ -13,8 +13,8 @@ import { ServidoresService } from 'app/services/servidores';
 })
 export class Equipos {
 
-  equiposProduccion: string[] = [];
-  equipoSeleccionado!: string;
+  equiposProduccion: Servidor[] = [];
+  equipoSeleccionado!: Servidor;
 
   constructor(
     private servidoresService: ServidoresService,
@@ -27,8 +27,7 @@ export class Equipos {
 
   cargarServidores(): void {
     this.servidoresService.getServidores().subscribe((servidores: Servidor[]) => {
-      const habilitados = servidores.filter(s => s.habilitado);
-      this.equiposProduccion = habilitados.map(s => s.nombre);
+      this.equiposProduccion = servidores.filter(s => s.habilitado);
 
       if (this.equiposProduccion.length > 0) {
         this.equipoSeleccionado = this.equiposProduccion[0];
@@ -37,7 +36,7 @@ export class Equipos {
     });
   }
 
-  onCambioEquipo(equipo: string) {
+  onCambioEquipo(equipo: Servidor) {
     this.equipoSeleccionado = equipo;
     this.equipoService.setEquipo(equipo);
   }

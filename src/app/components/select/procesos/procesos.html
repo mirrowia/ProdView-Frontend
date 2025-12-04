@@ -3,7 +3,9 @@
     <select 
         [(ngModel)]="procesoSeleccionado"
         (ngModelChange)="onCambioProceso($event)"
-        class="border rounded px-2 py-1 sm:w-full bg-cyan-800">
-      <option *ngFor="let p of procesos" [value]="p">{{ p }}</option>
+        class="border rounded px-2 py-1 sm:w-full bg-[#194168] dark:bg-cyan-800 text-[#cccccc]">
+        @for (p of procesos; track $index) {
+          <option [ngValue]="p">{{ p.descripcion }}</option>
+        }
     </select>
 </div>

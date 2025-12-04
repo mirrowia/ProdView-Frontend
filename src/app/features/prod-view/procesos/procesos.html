@@ -1,0 +1,8 @@
+<div class="flex flex-col h-screen bg-white dark:bg-[#0f172a] rounded shadow">
+  <!-- Header -->
+  <app-header-procesos (descargarGrafico)="grafico.downloadPDF()" class="h-fit"/>
+
+  <!-- Grafico -->
+  <app-grafico #grafico class="flex-1"/>
+</div>
+  

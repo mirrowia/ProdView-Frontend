@@ -1,0 +1,32 @@
+<div class="min-h-screen bg-[#ffffff] flex flex-col items-center px-4 py-10">
+  <h1 class="text-4xl font-semibold text-[#194168] mb-10">
+    Servicios
+  </h1>
+
+  <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl">
+    @for (service of services; track service.name) {
+      <div
+        (click)="goTo(service.url)"
+        class="cursor-pointer bg-white p-6 rounded-xl border border-[#194168]/20 shadow-sm 
+               hover:shadow-lg hover:-translate-y-1 transition transform"
+      >
+        <div
+          class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 
+                 bg-[#f6d916] shadow-sm"
+        >
+          <span class="material-icons text-[#194168] text-4xl">
+            {{ service.icon }}
+          </span>
+        </div>
+
+        <h2 class="text-xl font-bold text-[#194168] text-center mb-2">
+          {{ service.name }}
+        </h2>
+
+        <p class="text-[#194168]/80 text-sm text-center">
+          {{ service.description }}
+        </p>
+      </div>
+    }
+  </div>
+</div>

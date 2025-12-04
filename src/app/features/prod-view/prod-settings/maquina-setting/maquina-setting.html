@@ -1,0 +1,83 @@
+<form (ngSubmit)="updateMaquina()" class="space-y-5">
+
+  <!-- SELECT DE MÁQUINA -->
+  <div>
+    <label class="block text-[#194168] mb-1">Seleccionar Proceso</label>
+
+    <select
+      class="border p-2 rounded w-full"
+      [(ngModel)]="maquinaSeleccionada"
+      (ngModelChange)="onMaquinaChange($event)"
+      name="maquinaSeleccionada"
+    >
+      @for (m of maquinas; track $index) {
+        <option [ngValue]="m">
+          {{ m.descripcion }}
+        </option>
+      }
+    </select>
+  </div>
+
+  @if (maquinaSeleccionada.codMaq != "") {
+
+    <div>
+      <label class="block text-[#194168] mb-1">Código</label>
+      <input
+        type="text"
+        [(ngModel)]="maquina.codMaq"
+        name="codMaq"
+        class="w-full p-3 border border-[#194168]/30 rounded-lg"
+        readonly
+        disabled
+      />
+    </div>
+
+    <div>
+      <label class="block text-[#194168] mb-1">Descripción</label>
+      <input
+        type="text"
+        [(ngModel)]="maquina.descripcion"
+        name="descripcion"
+        class="w-full p-3 border border-[#194168]/30 rounded-lg"
+      />
+    </div>
+
+    <div>
+      <label class="block text-[#194168] mb-1">Velocidad Ideal</label>
+      <input
+        type="number"
+        [(ngModel)]="maquina.vIdeal"
+        name="vIdeal"
+        class="w-full p-3 border border-[#194168]/30 rounded-lg"
+      />
+    </div>
+
+    <div>
+      <label class="block text-[#194168] mb-1">Tecla (ASCII)</label>
+      <input
+        type="number"
+        [(ngModel)]="maquina.tecla"
+        name="tecla"
+        class="w-full p-3 border border-[#194168]/30 rounded-lg"
+      />
+    </div>
+
+    <div class="flex items-center gap-3">
+      <label class="block text-[#194168] mb-1">Gráfico</label>
+
+      <input
+        type="checkbox"
+        [(ngModel)]="maquina.graficable"
+        name="graficable"
+        class="w-5 h-5 accent-[#194168]"
+      />
+    </div>
+
+    <button
+      class="w-full bg-[#f6d916] text-[#194168] py-3 rounded-lg font-semibold hover:bg-[#d4bd14] transition"
+    >
+      Guardar máquina
+    </button>
+
+  }
+</form>

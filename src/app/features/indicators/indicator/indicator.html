@@ -1,0 +1,70 @@
+<div class="min-h-screen bg-[#ffffff] flex flex-col px-4 py-10">
+
+  <div class="flex mb-10 justify-between items-center">
+    <a href="/indicadores" class="hover:scale-105 transition">
+      <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#194168" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <h1 class="text-4xl font-semibold text-[#194168]">
+      Indicador: {{ indicatorId }}
+    </h1>
+
+    <div class="w-16 h-16"></div>
+  </div>
+
+  <div class="w-full flex justify-center">
+    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 w-full max-w-3xl">
+
+    <!-- Reiniciar entorno gráfico -->
+    <div
+      (click)="go('restart-gdm')"
+      class="cursor-pointer bg-white p-6 rounded-xl border border-[#194168]/20 shadow-sm
+             hover:shadow-lg hover:-translate-y-1 transition transform"
+    >
+      <div
+        class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4
+               bg-[#f6d916] shadow-sm"
+      >
+        <span class="material-icons text-[#194168] text-4xl">
+          restart_alt
+        </span>
+      </div>
+
+      <h2 class="text-xl font-bold text-[#194168] text-center mb-2">
+        Reiniciar entorno gráfico
+      </h2>
+
+      <p class="text-[#194168]/80 text-sm text-center">
+        Reinicia únicamente la interfaz gráfica sin afectar procesos del sistema.
+      </p>
+    </div>
+
+    <!-- Reiniciar sistema operativo -->
+    <div
+      (click)="go('reiniciar-os')"
+      class="cursor-pointer bg-white p-6 rounded-xl border border-[#194168]/20 shadow-sm
+             hover:shadow-lg hover:-translate-y-1 transition transform"
+    >
+      <div
+        class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4
+               bg-[#f6d916] shadow-sm"
+      >
+        <span class="material-icons text-[#194168] text-4xl">
+          power_settings_new
+        </span>
+      </div>
+
+      <h2 class="text-xl font-bold text-[#194168] text-center mb-2">
+        Reiniciar sistema operativo
+      </h2>
+
+      <p class="text-[#194168]/80 text-sm text-center">
+        Realiza un reinicio completo del equipo.
+      </p>
+    </div>
+
+  </div>
+  </div>
+</div>

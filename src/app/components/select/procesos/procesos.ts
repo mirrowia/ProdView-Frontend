@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Maquina } from 'app/models/maquina';
+import { Servidor } from 'app/models/servidor';
 import { EquipoService } from 'app/services/global/equipo';
 import { ProcesoService } from 'app/services/global/proceso';
 import { MaquinasService } from 'app/services/maquinas';
@@ -15,8 +16,8 @@ import { Subscription } from 'rxjs';
 })
 export class Procesos {
 
-  procesos: string[] = [];
-  procesoSeleccionado!: string;
+  procesos: Maquina[] = [];
+  procesoSeleccionado!: Maquina;
   private subs = new Subscription();
 
   constructor(
@@ -42,17 +43,19 @@ export class Procesos {
     this.subs.unsubscribe();
   }
 
-  cargarProcesos(equipo: string): void {
-    this.maquinasService.getMaquinas(equipo).subscribe((maquinas: Maquina[]) => {
-      this.procesos = maquinas.map(m => m.descripcion);
+  cargarProcesos(equipo: Servidor): void {    
+    if (equipo.codigo != "") {
+      this.maquinasService.getMaquinas(equipo.codigo).subscribe((maquinas: Maquina[]) => {
+      this.procesos = maquinas;
       if (this.procesos.length > 0) {
         this.procesoSeleccionado = this.procesos[0];
         this.procesoService.setProceso(this.procesoSeleccionado);
       }
-    });
+      });
+    }
   }
 
-  onCambioProceso(proceso: string): void {
+  onCambioProceso(proceso: Maquina): void {
     this.procesoSeleccionado = proceso;
     this.procesoService.setProceso(proceso);
   }

@@ -1,0 +1,57 @@
+<div class="min-h-screen bg-white px-6 py-12">
+
+  <div class="flex justify-between items-center mb-12">
+    <a href="/prod-view/estadisticas" class="hover:scale-105 transition">
+      <svg class="w-14 h-14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#194168" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <h1 class="text-4xl font-bold text-[#194168]">Configuración</h1>
+
+    <div class="w-14"></div>
+  </div>
+
+  <div class="max-w-3xl mx-auto bg-white border border-[#194168]/20 shadow-lg rounded-2xl">
+
+    <!-- Tabs -->
+    <div class="flex border-b border-[#194168]/20">
+
+      <!-- TAB Servidor -->
+      <button
+        (click)="activeTab = 'servidor'"
+        class="flex-1 py-4 text-center font-semibold transition"
+        [class.text-[#194168]]="activeTab === 'servidor'"
+        [class.border-b-4]="activeTab === 'servidor'"
+        [class.border-[#194168]]="activeTab === 'servidor'"
+        [class.text-[#194168]/50]="activeTab !== 'servidor'"
+      >
+        Servidor
+      </button>
+
+      <!-- TAB Máquina -->
+      <button
+        (click)="activeTab = 'maquina'"
+        class="flex-1 py-4 text-center font-semibold transition"
+        [class.text-[#194168]]="activeTab === 'maquina'"
+        [class.border-b-4]="activeTab === 'maquina'"
+        [class.border-[#194168]]="activeTab === 'maquina'"
+        [class.text-[#194168]/50]="activeTab !== 'maquina'"
+      >
+        Máquina
+      </button>
+
+    </div>
+
+    <div class="p-10">
+
+      <!-- Form SERVIDOR -->
+       @if (activeTab === "servidor") {
+        <app-servidor-setting/>
+        } @else if (activeTab === "maquina") {
+        <!-- Form MÁQUINA -->
+        <app-maquina-setting/>
+        }
+    </div>
+  </div>
+</div>

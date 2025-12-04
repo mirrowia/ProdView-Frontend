@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class PulsoService {
 
-  private apiBase = environment.apiBaseUrl;
+  private apiBase = environment.apiBaseUrlProd;
 
   constructor(private http: HttpClient) {}
 

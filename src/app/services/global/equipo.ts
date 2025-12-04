@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Servidor } from 'app/models/servidor';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -6,10 +7,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class EquipoService {
 
-  private equipoSubject = new BehaviorSubject<string>('');
+  private equipoSubject = new BehaviorSubject<Servidor>({
+    codigo: '',
+    nombre: '',
+    direccionIp: '',
+    puerto: 0,
+    habilitado: true
+  });
   equipo$ = this.equipoSubject.asObservable();
 
-  setEquipo(equipo: string) {
+  setEquipo(equipo: Servidor) {
     this.equipoSubject.next(equipo);
   }
 

@@ -1,0 +1,79 @@
+<form (ngSubmit)="updateServidor()" class="space-y-5">
+
+  <!-- SELECT DE SERVIDOR -->
+  <label class="block mb-1">Seleccionar Servidor</label>
+
+  <select
+    class="border p-2 rounded w-full"
+    [(ngModel)]="servidorSeleccionado"
+    (ngModelChange)="onServidorChange($event)"
+    name="servidorSeleccionado"
+  >
+    @for (s of servidores; track $index) {
+      <option [ngValue]="s">
+        {{ s.codigo }} - {{ s.nombre }}
+      </option>
+    }
+  </select>
+
+  @if (servidorSeleccionado.codigo != "") {
+    <div>
+      <label class="block text-[#194168] mb-1">Código</label>
+      <input
+        type="text"
+        [(ngModel)]="servidor.codigo"
+        name="codigo"
+        class="w-full p-3 border border-[#194168]/30 rounded-lg"
+        disabled
+        readonly
+      />
+    </div>
+
+    <div>
+      <label class="block text-[#194168] mb-1">Nombre</label>
+      <input
+        type="text"
+        [(ngModel)]="servidor.nombre"
+        name="nombre"
+        class="w-full p-3 border border-[#194168]/30 rounded-lg"
+      />
+    </div>
+
+    <div>
+      <label class="block text-[#194168] mb-1">Dirección IP</label>
+      <input
+        type="text"
+        [(ngModel)]="servidor.direccionIp"
+        name="ip"
+        class="w-full p-3 border border-[#194168]/30 rounded-lg"
+      />
+    </div>
+
+    <div>
+      <label class="block text-[#194168] mb-1">Puerto</label>
+      <input
+        type="number"
+        [(ngModel)]="servidor.puerto"
+        name="puerto"
+        class="w-full p-3 border border-[#194168]/30 rounded-lg"
+      />
+    </div>
+
+    <div class="flex items-center gap-3">
+      <input
+        type="checkbox"
+        [(ngModel)]="servidor.habilitado"
+        name="habilitado"
+        class="w-5 h-5 border-[#194168]"
+      />
+      <label class="text-[#194168]">Habilitado</label>
+    </div>
+
+    <button
+      class="w-full bg-[#194168] text-white py-3 rounded-lg font-semibold hover:bg-[#15385a] transition"
+    >
+      Guardar servidor
+    </button>
+  }
+
+</form>
