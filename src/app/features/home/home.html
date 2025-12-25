@@ -14,9 +14,17 @@
           class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 
                  bg-[#f6d916] shadow-sm"
         >
+        @if (service.icon === 'grafana') {
+          <mat-icon
+            svgIcon="grafana"
+            class="text-[#194168]"
+            style="width: 40px; height: 40px"
+          ></mat-icon>
+        } @else {
           <span class="material-icons text-[#194168] text-4xl">
             {{ service.icon }}
           </span>
+        }
         </div>
 
         <h2 class="text-xl font-bold text-[#194168] text-center mb-2">

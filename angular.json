@@ -27,15 +27,28 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css"
+            ],
+            "allowedCommonJsDependencies": [
+            "canvg",
+            "html2canvas",
+            "jspdf",
+            "rgbcolor",
+            "raf"
             ]
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+              {
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }
+            ],
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "700kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "3MB"
                 },
                 {
                   "type": "anyComponentStyle",

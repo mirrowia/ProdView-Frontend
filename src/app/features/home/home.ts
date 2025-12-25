@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -31,6 +32,12 @@ services: Service[] = [
       description: 'Estado del UPS y energía.',
       url: '/cgi-bin/apcupsd/multimon.cgi',
       icon: 'battery_full',
+    },
+    {
+      name: 'Grafana',
+      description: 'Monitoreo y estadisticas de equipos.',
+      url: 'http://192.168.0.6:3000/d/ad9pvfj/prometheus',
+      icon: 'grafana',
     }
   ];
 

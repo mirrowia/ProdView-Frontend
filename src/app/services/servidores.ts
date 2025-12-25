@@ -13,7 +13,7 @@ export class ServidoresService {
   constructor(private http: HttpClient) {}
 
   getServidores(): Observable<Servidor[]> {
-    return this.http.get<Servidor[]>(`${this.apiBase}/servidor/`);
+    return this.http.get<Servidor[]>(`${this.apiBase}/servidor`);
   }
 
   saveServidor(servidor: Servidor): Observable<Servidor> {
